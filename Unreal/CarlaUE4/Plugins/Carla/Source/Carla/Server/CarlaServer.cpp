@@ -3319,7 +3319,7 @@ BIND_SYNC(send) << [this](
 
   BIND_SYNC(contact_points) << [this] (
       const std::vector<cr::Location>& Locations,
-      cr::Vector3D Direction,
+      const std::vector<cr::Vector3D>& Directions,
       float SearchDistance,
       const std::vector<cr::ActorId>& IgnoredActorIds)
       -> R<std::vector<std::pair<bool,cr::ContactPoint>>>
@@ -3353,7 +3353,13 @@ BIND_SYNC(send) << [this](
         }
     }
 
-    return URayTracer::ProjectPoints(UELocations, Direction.ToFVector(),
+    std::vector<FVector> UEDirections;
+    UEDirections.reserve(Directions.size());
+    for (const auto& Direction : Directions) {
+      UEDirections.emplace_back(Direction.ToFVector());
+    }
+
+    return URayTracer::ProjectPoints(UELocations, UEDirections,
         meter_to_centimeter * SearchDistance, World, IgnoredActors);
   };
 
