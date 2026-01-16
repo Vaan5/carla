@@ -779,7 +779,7 @@ ECarlaServerResponse FVehicleActor::SetVehicleLightState(
 }
 
 ECarlaServerResponse FVehicleActor::SetWheelSteerDirection(
-    const EVehicleWheelLocation& WheelLocation, float AngleInDeg)
+  uint8 WheelIdx, float AngleInDeg)
 {
   if (IsDormant())
   {
@@ -790,13 +790,13 @@ ECarlaServerResponse FVehicleActor::SetWheelSteerDirection(
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
     }
-    Vehicle->SetWheelSteerDirection(WheelLocation, AngleInDeg);
+    Vehicle->SetWheelSteerDirection(WheelIdx, AngleInDeg);
   }
   return ECarlaServerResponse::Success;
 }
 
 ECarlaServerResponse FVehicleActor::GetWheelSteerAngle(
-      const EVehicleWheelLocation& WheelLocation, float& Angle)
+  uint8 WheelIdx, float& Angle)
 {
   if (IsDormant())
   {
@@ -809,13 +809,13 @@ ECarlaServerResponse FVehicleActor::GetWheelSteerAngle(
       return ECarlaServerResponse::NotAVehicle;
     }
 
-    Angle = Vehicle->GetWheelSteerAngle(WheelLocation);
+    Angle = Vehicle->GetWheelSteerAngle(WheelIdx);
   }
   return ECarlaServerResponse::Success;
 }
 
 ECarlaServerResponse FVehicleActor::SetWheelPitchAngle(
-    const EVehicleWheelLocation& WheelLocation, float AngleInDeg)
+    uint8 WheelIdx, float AngleInDeg)
 {
   if (IsDormant())
   {
@@ -826,13 +826,13 @@ ECarlaServerResponse FVehicleActor::SetWheelPitchAngle(
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
     }
-    Vehicle->SetWheelPitchAngle(WheelLocation, AngleInDeg);
+    Vehicle->SetWheelPitchAngle(WheelIdx, AngleInDeg);
   }
   return ECarlaServerResponse::Success;
 }
 
 ECarlaServerResponse FVehicleActor::GetWheelPitchAngle(
-      const EVehicleWheelLocation& WheelLocation, float& Angle)
+      uint8 WheelIdx, float& Angle)
 {
   if (IsDormant())
   {
@@ -845,13 +845,13 @@ ECarlaServerResponse FVehicleActor::GetWheelPitchAngle(
       return ECarlaServerResponse::NotAVehicle;
     }
 
-    Angle = Vehicle->GetWheelPitchAngle(WheelLocation);
+    Angle = Vehicle->GetWheelPitchAngle(WheelIdx);
   }
   return ECarlaServerResponse::Success;
 }
 
 ECarlaServerResponse FVehicleActor::SetWheelHeight(
-    const EVehicleWheelLocation& WheelLocation, float height)
+  uint8 WheelIdx, float height)
 {
   if (IsDormant())
   {
@@ -862,13 +862,13 @@ ECarlaServerResponse FVehicleActor::SetWheelHeight(
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
     }
-    Vehicle->SetWheelHeight(WheelLocation, height);
+    Vehicle->SetWheelHeight(WheelIdx, height);
   }
   return ECarlaServerResponse::Success;
 }
 
 ECarlaServerResponse FVehicleActor::GetWheelHeight(
-      const EVehicleWheelLocation& WheelLocation, float& Height)
+  uint8 WheelIdx, float& Height)
 {
   if (IsDormant())
   {
@@ -881,7 +881,7 @@ ECarlaServerResponse FVehicleActor::GetWheelHeight(
       return ECarlaServerResponse::NotAVehicle;
     }
 
-    Height = Vehicle->GetWheelHeight(WheelLocation);
+    Height = Vehicle->GetWheelHeight(WheelIdx);
   }
   return ECarlaServerResponse::Success;
 }

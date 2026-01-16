@@ -281,32 +281,32 @@ public:
     return ECarlaServerResponse::ActorTypeMismatch;
   }
 
-  virtual ECarlaServerResponse SetWheelSteerDirection(const EVehicleWheelLocation&, float)
+  virtual ECarlaServerResponse SetWheelSteerDirection(uint8, float)
   {
     return ECarlaServerResponse::ActorTypeMismatch;
   }
 
-  virtual ECarlaServerResponse GetWheelSteerAngle(const EVehicleWheelLocation&, float&)
+  virtual ECarlaServerResponse GetWheelSteerAngle(uint8, float&)
   {
     return ECarlaServerResponse::ActorTypeMismatch;
   }
 
-  virtual ECarlaServerResponse SetWheelPitchAngle(const EVehicleWheelLocation&, float)
+  virtual ECarlaServerResponse SetWheelPitchAngle(uint8, float)
   {
     return ECarlaServerResponse::ActorTypeMismatch;
   }
 
-  virtual ECarlaServerResponse GetWheelPitchAngle(const EVehicleWheelLocation&, float&)
+  virtual ECarlaServerResponse GetWheelPitchAngle(uint8, float&)
   {
     return ECarlaServerResponse::ActorTypeMismatch;
   }
 
-  virtual ECarlaServerResponse SetWheelHeight(const EVehicleWheelLocation&, float)
+  virtual ECarlaServerResponse SetWheelHeight(uint8, float)
   {
     return ECarlaServerResponse::ActorTypeMismatch;
   }
 
-  virtual ECarlaServerResponse GetWheelHeight(const EVehicleWheelLocation&, float&)
+  virtual ECarlaServerResponse GetWheelHeight(uint8, float&)
   {
     return ECarlaServerResponse::ActorTypeMismatch;
   }
@@ -535,22 +535,22 @@ public:
       const FVehicleLightState& LightState) override final;
 
   ECarlaServerResponse SetWheelSteerDirection(
-      const EVehicleWheelLocation& WheelLocation, float AngleInDeg) override final;
+      uint8 WheelIdx, float AngleInDeg) override final;
 
   ECarlaServerResponse GetWheelSteerAngle(
-      const EVehicleWheelLocation& WheelLocation, float& Angle) override final;
+      uint8 WheelIdx, float& Angle) override final;
 
   ECarlaServerResponse SetWheelPitchAngle(
-      const EVehicleWheelLocation& WheelLocation, float AngleInDeg) override final;
+      uint8 WheelIdx, float AngleInDeg) override final;
 
   ECarlaServerResponse GetWheelPitchAngle(
-      const EVehicleWheelLocation& WheelLocation, float& Angle) override final;
+      uint8 WheelIdx, float& Angle) override final;
 
   ECarlaServerResponse SetWheelHeight(
-      const EVehicleWheelLocation& WheelLocation, float Height) override final;
+      uint8 WheelIdx, float Height) override final;
 
   ECarlaServerResponse GetWheelHeight(
-      const EVehicleWheelLocation& WheelLocation, float& Height) override final;
+      uint8 WheelIdx, float& Height) override final;
 
   ECarlaServerResponse SetActorSimulatePhysics(bool bSimulatePhysics) override final;
 

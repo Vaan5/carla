@@ -343,41 +343,41 @@ namespace detail {
 
   void Client::SetWheelSteerDirection(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation vehicle_wheel,
+        uint8_t wheel_idx,
         float angle_in_deg) {
-    return _pimpl->AsyncCall("set_wheel_steer_direction", vehicle, vehicle_wheel, angle_in_deg);
+    return _pimpl->AsyncCall("set_wheel_steer_direction", vehicle, wheel_idx, angle_in_deg);
   }
 
   float Client::GetWheelSteerAngle(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation wheel_location){
-    return _pimpl->CallAndWait<float>("get_wheel_steer_angle", vehicle, wheel_location);
+        uint8_t wheel_idx){
+    return _pimpl->CallAndWait<float>("get_wheel_steer_angle", vehicle, wheel_idx);
   }
 
   void Client::SetWheelPitchAngle(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation vehicle_wheel,
+        uint8_t wheel_idx,
         float angle_in_deg) {
-    return _pimpl->AsyncCall("set_wheel_pitch_angle", vehicle, vehicle_wheel, angle_in_deg);
+    return _pimpl->AsyncCall("set_wheel_pitch_angle", vehicle, wheel_idx, angle_in_deg);
   }
 
   float Client::GetWheelPitchAngle(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation wheel_location){
-    return _pimpl->CallAndWait<float>("get_wheel_pitch_angle", vehicle, wheel_location);
+        uint8_t wheel_idx){
+    return _pimpl->CallAndWait<float>("get_wheel_pitch_angle", vehicle, wheel_idx);
   }
 
   void Client::SetWheelHeight(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation vehicle_wheel,
+        uint8_t wheel_idx,
         float height) {
-    return _pimpl->AsyncCall("set_wheel_height", vehicle, vehicle_wheel, height);
+    return _pimpl->AsyncCall("set_wheel_height", vehicle, wheel_idx, height);
   }
 
   float Client::GetWheelHeight(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation wheel_location){
-    return _pimpl->CallAndWait<float>("get_wheel_height", vehicle, wheel_location);
+        uint8_t wheel_idx){
+    return _pimpl->CallAndWait<float>("get_wheel_height", vehicle, wheel_idx);
   }
 
   rpc::Actor Client::SpawnActor(

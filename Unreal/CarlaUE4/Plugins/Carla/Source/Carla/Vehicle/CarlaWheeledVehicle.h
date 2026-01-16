@@ -396,31 +396,34 @@ public:
   bool IsInVehicleRange(const FVector& Location) const;
 
   /// Set the rotation of the car wheels indicated by the user
-  /// 0 = FL_VehicleWheel, 1 = FR_VehicleWheel, 2 = BL_VehicleWheel, 3 = BR_VehicleWheel
+  /// Even wheel indices denote left wheels, odd wheel indices denote right wheels
+  /// Wheels are indexed from the front to the rear of the vehicle
   /// NOTE : This is purely aesthetic. It will not modify the physics of the car in any way
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
-  void SetWheelSteerDirection(EVehicleWheelLocation WheelLocation, float AngleInDeg);
+  void SetWheelSteerDirection(uint8 WheelIdx, float AngleInDeg);
 
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
-  float GetWheelSteerAngle(EVehicleWheelLocation WheelLocation);
+  float GetWheelSteerAngle(uint8 WheelIdx);
 
   /// Set the pitch angle of the car wheels indicated by the user
-  /// 0 = FL_VehicleWheel, 1 = FR_VehicleWheel, 2 = BL_VehicleWheel, 3 = BR_VehicleWheel
+  /// Even wheel indices denote left wheels, odd wheel indices denote right wheels
+  /// Wheels are indexed from the front to the rear of the vehicle
   /// NOTE : This is purely aesthetic. It will not modify the physics of the car in any way
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
-  void SetWheelPitchAngle(EVehicleWheelLocation WheelLocation, float AngleInDeg);
+  void SetWheelPitchAngle(uint8 WheelIdx, float AngleInDeg);
 
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
-  float GetWheelPitchAngle(EVehicleWheelLocation WheelLocation);
+  float GetWheelPitchAngle(uint8 WheelIdx);
 
   /// Set the height of the car wheels indicated by the user
-  /// 0 = FL_VehicleWheel, 1 = FR_VehicleWheel, 2 = BL_VehicleWheel, 3 = BR_VehicleWheel
+  /// Even wheel indices denote left wheels, odd wheel indices denote right wheels
+  /// Wheels are indexed from the front to the rear of the vehicle
   /// NOTE : This is purely aesthetic. It will not modify the physics of the car in any way
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
-  void SetWheelHeight(EVehicleWheelLocation WheelLocation, float Height);
+  void SetWheelHeight(uint8 WheelIdx, float Height);
 
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
-  float GetWheelHeight(EVehicleWheelLocation WheelLocation);
+  float GetWheelHeight(uint8 WheelIdx);
 
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
   void OpenDoor(const EVehicleDoor DoorIdx);

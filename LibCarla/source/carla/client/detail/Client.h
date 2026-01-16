@@ -337,35 +337,35 @@ namespace detail {
 
     void SetWheelSteerDirection(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation vehicle_wheel,
+        uint8_t wheel_idx,
         float angle_in_deg
     );
 
     float GetWheelSteerAngle(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation wheel_location
+        uint8_t wheel_idx
     );
 
     void SetWheelPitchAngle(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation vehicle_wheel,
+        uint8_t wheel_idx,
         float angle_in_deg
     );
 
     float GetWheelPitchAngle(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation wheel_location
+        uint8_t wheel_idx
     );
 
     void SetWheelHeight(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation vehicle_wheel,
+        uint8_t wheel_idx,
         float height
     );
 
     float GetWheelHeight(
         rpc::ActorId vehicle,
-        rpc::VehicleWheelLocation wheel_location
+        uint8_t wheel_idx
     );
 
     void EnableChronoPhysics(

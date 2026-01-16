@@ -89,28 +89,28 @@ namespace client {
     GetEpisode().Lock()->SetLightStateToVehicle(*this, rpc::VehicleLightState(light_state));
   }
 
-  void Vehicle::SetWheelSteerDirection(WheelLocation wheel_location, float angle_in_deg) {
-    GetEpisode().Lock()->SetWheelSteerDirection(*this, wheel_location, angle_in_deg);
+  void Vehicle::SetWheelSteerDirection(uint8_t wheel_idx, float angle_in_deg) {
+    GetEpisode().Lock()->SetWheelSteerDirection(*this, wheel_idx, angle_in_deg);
   }
 
-  float Vehicle::GetWheelSteerAngle(WheelLocation wheel_location) {
-    return GetEpisode().Lock()->GetWheelSteerAngle(*this, wheel_location);
+  float Vehicle::GetWheelSteerAngle(uint8_t wheel_idx) {
+    return GetEpisode().Lock()->GetWheelSteerAngle(*this, wheel_idx);
   }
 
-  void Vehicle::SetWheelPitchAngle(WheelLocation wheel_location, float angle_in_deg) {
-    GetEpisode().Lock()->SetWheelPitchAngle(*this, wheel_location, angle_in_deg);
+  void Vehicle::SetWheelPitchAngle(uint8_t wheel_idx, float angle_in_deg) {
+    GetEpisode().Lock()->SetWheelPitchAngle(*this, wheel_idx, angle_in_deg);
   }
 
-  float Vehicle::GetWheelPitchAngle(WheelLocation wheel_location) {
-    return GetEpisode().Lock()->GetWheelPitchAngle(*this, wheel_location);
+  float Vehicle::GetWheelPitchAngle(uint8_t wheel_idx) {
+    return GetEpisode().Lock()->GetWheelPitchAngle(*this, wheel_idx);
   }
 
-  void Vehicle::SetWheelHeight(WheelLocation wheel_location, float height) {
-    GetEpisode().Lock()->SetWheelHeight(*this, wheel_location, height);
+  void Vehicle::SetWheelHeight(uint8_t wheel_idx, float height) {
+    GetEpisode().Lock()->SetWheelHeight(*this, wheel_idx, height);
   }
 
-  float Vehicle::GetWheelHeight(WheelLocation wheel_location) {
-    return GetEpisode().Lock()->GetWheelHeight(*this, wheel_location);
+  float Vehicle::GetWheelHeight(uint8_t wheel_idx) {
+    return GetEpisode().Lock()->GetWheelHeight(*this, wheel_idx);
   }
 
   Vehicle::Control Vehicle::GetControl() const {

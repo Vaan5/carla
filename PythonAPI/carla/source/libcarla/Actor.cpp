@@ -204,12 +204,30 @@ void export_actor() {
       .def("set_light_state", &cc::Vehicle::SetLightState, (arg("light_state")))
       .def("open_door", &cc::Vehicle::OpenDoor, (arg("door_idx")))
       .def("close_door", &cc::Vehicle::CloseDoor, (arg("door_idx")))
-      .def("set_wheel_steer_direction", &cc::Vehicle::SetWheelSteerDirection, (arg("wheel_location")), (arg("angle_in_deg")))
-      .def("get_wheel_steer_angle", &cc::Vehicle::GetWheelSteerAngle, (arg("wheel_location")))
-      .def("set_wheel_pitch_angle", &cc::Vehicle::SetWheelPitchAngle, (arg("wheel_location")), (arg("angle_in_deg")))
-      .def("get_wheel_pitch_angle", &cc::Vehicle::GetWheelPitchAngle, (arg("wheel_location")))
-      .def("set_wheel_height", &cc::Vehicle::SetWheelHeight, (arg("wheel_location")), (arg("height")))
-      .def("get_wheel_height", &cc::Vehicle::GetWheelHeight, (arg("wheel_location")))
+      .def("set_wheel_steer_direction", &cc::Vehicle::SetWheelSteerDirection, (arg("wheel_idx"), arg("angle_in_deg")))
+      .def("set_wheel_steer_direction", +[] (cc::Vehicle &self, cc::Vehicle::WheelLocation wheel_location, float angle_in_deg) {
+        return self.SetWheelSteerDirection(static_cast<std::underlying_type<cc::Vehicle::WheelLocation>::type>(wheel_location), angle_in_deg);
+      }, (arg("wheel_idx"), arg("angle_in_deg")))
+      .def("get_wheel_steer_angle", &cc::Vehicle::GetWheelSteerAngle, (arg("wheel_idx")))
+      .def("get_wheel_steer_angle", +[] (cc::Vehicle &self, cc::Vehicle::WheelLocation wheel_location) {
+        return self.GetWheelSteerAngle(static_cast<std::underlying_type<cc::Vehicle::WheelLocation>::type>(wheel_location));
+      }, (arg("wheel_idx")))
+      .def("set_wheel_pitch_angle", &cc::Vehicle::SetWheelPitchAngle, (arg("wheel_idx"), arg("angle_in_deg")))
+      .def("set_wheel_pitch_angle", +[] (cc::Vehicle &self, cc::Vehicle::WheelLocation wheel_location, float angle_in_deg) {
+        return self.SetWheelPitchAngle(static_cast<std::underlying_type<cc::Vehicle::WheelLocation>::type>(wheel_location), angle_in_deg);
+      }, (arg("wheel_idx"), arg("angle_in_deg")))
+      .def("get_wheel_pitch_angle", &cc::Vehicle::GetWheelPitchAngle, (arg("wheel_idx")))
+      .def("get_wheel_pitch_angle", +[] (cc::Vehicle &self, cc::Vehicle::WheelLocation wheel_location) {
+        return self.GetWheelPitchAngle(static_cast<std::underlying_type<cc::Vehicle::WheelLocation>::type>(wheel_location));
+      }, (arg("wheel_idx")))
+      .def("set_wheel_height", &cc::Vehicle::SetWheelHeight, (arg("wheel_idx"), arg("height")))
+      .def("set_wheel_height", +[] (cc::Vehicle &self, cc::Vehicle::WheelLocation wheel_location, float height) {
+        return self.SetWheelHeight(static_cast<std::underlying_type<cc::Vehicle::WheelLocation>::type>(wheel_location), height);
+      }, (arg("wheel_idx"), arg("height")))
+      .def("get_wheel_height", &cc::Vehicle::GetWheelHeight, (arg("wheel_idx")))
+      .def("get_wheel_height", +[] (cc::Vehicle &self, cc::Vehicle::WheelLocation wheel_location) {
+        return self.GetWheelHeight(static_cast<std::underlying_type<cc::Vehicle::WheelLocation>::type>(wheel_location));
+      }, (arg("wheel_idx")))
       .def("get_light_state", CONST_CALL_WITHOUT_GIL(cc::Vehicle, GetLightState))
       .def("apply_physics_control", &cc::Vehicle::ApplyPhysicsControl, (arg("physics_control")))
       .def("get_physics_control", CONST_CALL_WITHOUT_GIL(cc::Vehicle, GetPhysicsControl))

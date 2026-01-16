@@ -936,14 +936,13 @@ void ACarlaWheeledVehicle::SetCarlaMovementComponent(UBaseCarlaMovementComponent
   BaseMovementComponent = MovementComponent;
 }
 
-void ACarlaWheeledVehicle::SetWheelSteerDirection(EVehicleWheelLocation WheelLocation, float AngleInDeg) {
+void ACarlaWheeledVehicle::SetWheelSteerDirection(uint8 WheelIdx, float AngleInDeg) {
 
   if (bPhysicsEnabled == false)
   {
-    check((uint8)WheelLocation >= 0)
     UVehicleAnimInstance *VehicleAnim = Cast<UVehicleAnimInstance>(GetMesh()->GetAnimInstance());
     check(VehicleAnim != nullptr)
-    VehicleAnim->SetWheelRotYaw((uint8)WheelLocation, AngleInDeg);
+    VehicleAnim->SetWheelRotYaw(WheelIdx, AngleInDeg);
   }
   else
   {
@@ -951,30 +950,27 @@ void ACarlaWheeledVehicle::SetWheelSteerDirection(EVehicleWheelLocation WheelLoc
   }
 }
 
-float ACarlaWheeledVehicle::GetWheelSteerAngle(EVehicleWheelLocation WheelLocation) {
-
-  check((uint8)WheelLocation >= 0)
+float ACarlaWheeledVehicle::GetWheelSteerAngle(uint8 WheelIdx) {
   UVehicleAnimInstance *VehicleAnim = Cast<UVehicleAnimInstance>(GetMesh()->GetAnimInstance());
   check(VehicleAnim != nullptr)
   check(VehicleAnim->GetWheeledVehicleMovementComponent() != nullptr)
 
   if (bPhysicsEnabled == true)
   {
-    return VehicleAnim->GetWheeledVehicleMovementComponent()->Wheels[(uint8)WheelLocation]->GetSteerAngle();
+    return VehicleAnim->GetWheeledVehicleMovementComponent()->Wheels[WheelIdx]->GetSteerAngle();
   }
   else
   {
-    return VehicleAnim->GetWheelRotAngle((uint8)WheelLocation);
+    return VehicleAnim->GetWheelRotAngle(WheelIdx);
   }
 }
 
-void ACarlaWheeledVehicle::SetWheelPitchAngle(EVehicleWheelLocation WheelLocation, float AngleInDeg) {
+void ACarlaWheeledVehicle::SetWheelPitchAngle(uint8 WheelIdx, float AngleInDeg) {
   if (bPhysicsEnabled == false)
   {
-    check((uint8)WheelLocation >= 0)
     UVehicleAnimInstance *VehicleAnim = Cast<UVehicleAnimInstance>(GetMesh()->GetAnimInstance());
     check(VehicleAnim != nullptr)
-    VehicleAnim->SetWheelPitchAngle((uint8)WheelLocation, AngleInDeg);
+    VehicleAnim->SetWheelPitchAngle(WheelIdx, AngleInDeg);
   }
   else
   {
@@ -982,29 +978,27 @@ void ACarlaWheeledVehicle::SetWheelPitchAngle(EVehicleWheelLocation WheelLocatio
   }
 }
 
-float ACarlaWheeledVehicle::GetWheelPitchAngle(EVehicleWheelLocation WheelLocation) {
-  check((uint8)WheelLocation >= 0)
+float ACarlaWheeledVehicle::GetWheelPitchAngle(uint8 WheelIdx) {
   UVehicleAnimInstance *VehicleAnim = Cast<UVehicleAnimInstance>(GetMesh()->GetAnimInstance());
   check(VehicleAnim != nullptr)
   check(VehicleAnim->GetWheeledVehicleMovementComponent() != nullptr)
 
   if (bPhysicsEnabled == true)
   {
-    return VehicleAnim->GetWheeledVehicleMovementComponent()->Wheels[(uint8)WheelLocation]->GetRotationAngle();
+    return VehicleAnim->GetWheeledVehicleMovementComponent()->Wheels[WheelIdx]->GetRotationAngle();
   }
   else
   {
-    return VehicleAnim->GetWheelPitchAngle((uint8)WheelLocation);
+    return VehicleAnim->GetWheelPitchAngle(WheelIdx);
   }
 }
 
-void ACarlaWheeledVehicle::SetWheelHeight(EVehicleWheelLocation WheelLocation, float Height) {
+void ACarlaWheeledVehicle::SetWheelHeight(uint8 WheelIdx, float Height) {
   if (bPhysicsEnabled == false)
   {
-    check((uint8)WheelLocation >= 0)
     UVehicleAnimInstance *VehicleAnim = Cast<UVehicleAnimInstance>(GetMesh()->GetAnimInstance());
     check(VehicleAnim != nullptr)
-    VehicleAnim->SetWheelHeight((uint8)WheelLocation, Height);
+    VehicleAnim->SetWheelHeight(WheelIdx, Height);
   }
   else
   {
@@ -1012,20 +1006,18 @@ void ACarlaWheeledVehicle::SetWheelHeight(EVehicleWheelLocation WheelLocation, f
   }
 }
 
-float ACarlaWheeledVehicle::GetWheelHeight(EVehicleWheelLocation WheelLocation) {
-
-  check((uint8)WheelLocation >= 0)
+float ACarlaWheeledVehicle::GetWheelHeight(uint8 WheelIdx) {
   UVehicleAnimInstance *VehicleAnim = Cast<UVehicleAnimInstance>(GetMesh()->GetAnimInstance());
   check(VehicleAnim != nullptr)
   check(VehicleAnim->GetWheeledVehicleMovementComponent() != nullptr)
 
   if (bPhysicsEnabled == true)
   {
-    return VehicleAnim->GetWheeledVehicleMovementComponent()->Wheels[(uint8)WheelLocation]->GetSuspensionOffset();
+    return VehicleAnim->GetWheeledVehicleMovementComponent()->Wheels[WheelIdx]->GetSuspensionOffset();
   }
   else
   {
-    return VehicleAnim->GetWheelHeight((uint8)WheelLocation);
+    return VehicleAnim->GetWheelHeight(WheelIdx);
   }
 }
 

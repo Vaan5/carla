@@ -628,28 +628,28 @@ namespace detail {
       _client.CloseVehicleDoor(vehicle.GetId(), door_idx);
     }
 
-    void SetWheelSteerDirection(Vehicle &vehicle, rpc::VehicleWheelLocation wheel_location, float angle_in_deg) {
-      _client.SetWheelSteerDirection(vehicle.GetId(), wheel_location, angle_in_deg);
+    void SetWheelSteerDirection(Vehicle &vehicle, uint8_t wheel_idx, float angle_in_deg) {
+      _client.SetWheelSteerDirection(vehicle.GetId(), wheel_idx, angle_in_deg);
     }
 
-    float GetWheelSteerAngle(Vehicle &vehicle, rpc::VehicleWheelLocation wheel_location) {
-      return _client.GetWheelSteerAngle(vehicle.GetId(), wheel_location);
+    float GetWheelSteerAngle(Vehicle &vehicle, uint8_t wheel_idx) {
+      return _client.GetWheelSteerAngle(vehicle.GetId(), wheel_idx);
     }
 
-    void SetWheelPitchAngle(Vehicle &vehicle, rpc::VehicleWheelLocation wheel_location, float angle_in_deg) {
-      _client.SetWheelPitchAngle(vehicle.GetId(), wheel_location, angle_in_deg);
+    void SetWheelPitchAngle(Vehicle &vehicle, uint8_t wheel_idx, float angle_in_deg) {
+      _client.SetWheelPitchAngle(vehicle.GetId(), wheel_idx, angle_in_deg);
     }
 
-    float GetWheelPitchAngle(Vehicle &vehicle, rpc::VehicleWheelLocation wheel_location) {
-      return _client.GetWheelPitchAngle(vehicle.GetId(), wheel_location);
+    float GetWheelPitchAngle(Vehicle &vehicle, uint8_t wheel_idx) {
+      return _client.GetWheelPitchAngle(vehicle.GetId(), wheel_idx);
     }
 
-    void SetWheelHeight(Vehicle &vehicle, rpc::VehicleWheelLocation wheel_location, float height) {
-      _client.SetWheelHeight(vehicle.GetId(), wheel_location, height);
+    void SetWheelHeight(Vehicle &vehicle, uint8_t wheel_idx, float height) {
+      _client.SetWheelHeight(vehicle.GetId(), wheel_idx, height);
     }
 
-    float GetWheelHeight(Vehicle &vehicle, rpc::VehicleWheelLocation wheel_location) {
-      return _client.GetWheelHeight(vehicle.GetId(), wheel_location);
+    float GetWheelHeight(Vehicle &vehicle, uint8_t wheel_idx) {
+      return _client.GetWheelHeight(vehicle.GetId(), wheel_idx);
     }
 
     void EnableCarSim(Vehicle &vehicle, std::string simfile_path) {

@@ -3,6 +3,8 @@
 //
 // This work is licensed under the terms of the MIT license.
 // For a copy, see <https://opensource.org/licenses/MIT>.
+//
+// Additional functionality added by AVL List GmbH under the terms of the MIT license.
 
 #include "Carla.h"
 #include "Carla/Actor/ActorDescription.h"
@@ -239,7 +241,7 @@ void ACarlaRecorder::AddVehicleWheelsAnimation(FCarlaActor *CarlaActor)
   {
     WheelInfo Info;
     Info.Location = static_cast<EVehicleWheelLocation>(i);
-    Info.SteeringAngle = CarlaVehicle->GetWheelSteerAngle(Info.Location);
+    Info.SteeringAngle = CarlaVehicle->GetWheelSteerAngle(i);
     Info.TireRotation = Wheel->GetRotationAngle();
     Record.WheelValues.push_back(Info);
     ++i;

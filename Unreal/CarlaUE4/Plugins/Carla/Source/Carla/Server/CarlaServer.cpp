@@ -1994,7 +1994,7 @@ BIND_SYNC(send) << [this](
 
   BIND_SYNC(set_wheel_steer_direction) << [this](
     cr::ActorId ActorId,
-    cr::VehicleWheelLocation WheelLocation,
+    uint8 WheelIdx,
     float AngleInDeg) -> R<void>
   {
     REQUIRE_CARLA_EPISODE();
@@ -2006,8 +2006,7 @@ BIND_SYNC(send) << [this](
           " Actor Id: " + FString::FromInt(ActorId));
     }
     ECarlaServerResponse Response =
-        CarlaActor->SetWheelSteerDirection(
-            static_cast<EVehicleWheelLocation>(WheelLocation), AngleInDeg);
+        CarlaActor->SetWheelSteerDirection(WheelIdx, AngleInDeg);
     if (Response != ECarlaServerResponse::Success)
     {
       return RespondError(
@@ -2020,7 +2019,7 @@ BIND_SYNC(send) << [this](
 
   BIND_SYNC(get_wheel_steer_angle) << [this](
       const cr::ActorId ActorId,
-      cr::VehicleWheelLocation WheelLocation) -> R<float>
+      uint8 WheelIdx) -> R<float>
   {
     REQUIRE_CARLA_EPISODE();
     FCarlaActor* CarlaActor = Episode->FindCarlaActor(ActorId);
@@ -2032,8 +2031,7 @@ BIND_SYNC(send) << [this](
     }
     float Angle;
     ECarlaServerResponse Response =
-        CarlaActor->GetWheelSteerAngle(
-            static_cast<EVehicleWheelLocation>(WheelLocation), Angle);
+        CarlaActor->GetWheelSteerAngle(WheelIdx, Angle);
     if (Response != ECarlaServerResponse::Success)
     {
       return RespondError(
@@ -2046,7 +2044,7 @@ BIND_SYNC(send) << [this](
 
   BIND_SYNC(set_wheel_pitch_angle) << [this](
     cr::ActorId ActorId,
-    cr::VehicleWheelLocation WheelLocation,
+    uint8_t WheelIdx,
     float AngleInDeg) -> R<void>
   {
     REQUIRE_CARLA_EPISODE();
@@ -2058,8 +2056,7 @@ BIND_SYNC(send) << [this](
           " Actor Id: " + FString::FromInt(ActorId));
     }
     ECarlaServerResponse Response =
-        CarlaActor->SetWheelPitchAngle(
-            static_cast<EVehicleWheelLocation>(WheelLocation), AngleInDeg);
+        CarlaActor->SetWheelPitchAngle(WheelIdx, AngleInDeg);
     if (Response != ECarlaServerResponse::Success)
     {
       return RespondError(
@@ -2072,7 +2069,7 @@ BIND_SYNC(send) << [this](
 
   BIND_SYNC(get_wheel_pitch_angle) << [this](
       const cr::ActorId ActorId,
-      cr::VehicleWheelLocation WheelLocation) -> R<float>
+      uint8_t WheelIdx) -> R<float>
   {
     REQUIRE_CARLA_EPISODE();
     FCarlaActor* CarlaActor = Episode->FindCarlaActor(ActorId);
@@ -2084,8 +2081,7 @@ BIND_SYNC(send) << [this](
     }
     float Angle;
     ECarlaServerResponse Response =
-        CarlaActor->GetWheelPitchAngle(
-            static_cast<EVehicleWheelLocation>(WheelLocation), Angle);
+        CarlaActor->GetWheelPitchAngle(WheelIdx, Angle);
     if (Response != ECarlaServerResponse::Success)
     {
       return RespondError(
@@ -2098,7 +2094,7 @@ BIND_SYNC(send) << [this](
 
   BIND_SYNC(set_wheel_height) << [this](
     cr::ActorId ActorId,
-    cr::VehicleWheelLocation WheelLocation,
+    uint8 WheelIdx,
     float Height) -> R<void>
   {
     REQUIRE_CARLA_EPISODE();
@@ -2110,8 +2106,7 @@ BIND_SYNC(send) << [this](
           " Actor Id: " + FString::FromInt(ActorId));
     }
     ECarlaServerResponse Response =
-        CarlaActor->SetWheelHeight(
-            static_cast<EVehicleWheelLocation>(WheelLocation), Height);
+        CarlaActor->SetWheelHeight(WheelIdx, Height);
     if (Response != ECarlaServerResponse::Success)
     {
       return RespondError(
@@ -2124,7 +2119,7 @@ BIND_SYNC(send) << [this](
 
   BIND_SYNC(get_wheel_height) << [this](
       const cr::ActorId ActorId,
-      cr::VehicleWheelLocation WheelLocation) -> R<float>
+      uint8 WheelIdx) -> R<float>
   {
     REQUIRE_CARLA_EPISODE();
     FCarlaActor* CarlaActor = Episode->FindCarlaActor(ActorId);
@@ -2136,8 +2131,7 @@ BIND_SYNC(send) << [this](
     }
     float Height;
     ECarlaServerResponse Response =
-        CarlaActor->GetWheelHeight(
-            static_cast<EVehicleWheelLocation>(WheelLocation), Height);
+        CarlaActor->GetWheelHeight(WheelIdx, Height);
     if (Response != ECarlaServerResponse::Success)
     {
       return RespondError(

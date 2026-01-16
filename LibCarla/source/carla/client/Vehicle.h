@@ -85,26 +85,26 @@ namespace client {
     void SetLightState(const LightState &light_state);
 
     /// Sets a @a Rotation to a wheel of the vehicle (affects the bone of the car skeleton, not the physics)
-    void SetWheelSteerDirection(WheelLocation wheel_location, float angle_in_deg);
+    void SetWheelSteerDirection(uint8_t wheel_idx, float angle_in_deg);
 
     /// Return a @a Rotation from a wheel of the vehicle
     ///
     /// @note The function returns the rotation of the vehicle based on the it's physics
-    float GetWheelSteerAngle(WheelLocation wheel_location);
+    float GetWheelSteerAngle(uint8_t wheel_idx);
 
     /// Sets a @a Pitch Angle to a wheel of the vehicle (affects the bone of the car skeleton, not the physics)
-    void SetWheelPitchAngle(WheelLocation wheel_location, float angle_in_deg);
+    void SetWheelPitchAngle(uint8_t wheel_idx, float angle_in_deg);
 
     /// Return a @a Pitch Angle from a wheel of the vehicle
     ///
     /// @note The function returns the pitch angle of the vehicle based on the it's physics
-    float GetWheelPitchAngle(WheelLocation wheel_location);
+    float GetWheelPitchAngle(uint8_t wheel_idx);
 
     /// Sets the height of a wheel of the vehicle (affects the bone of the car skeleton, not the physics)
-    void SetWheelHeight(WheelLocation wheel_location, float height);
+    void SetWheelHeight(uint8_t wheel_idx, float height);
 
     /// Return the height of a wheel of the vehicle
-    float GetWheelHeight(WheelLocation wheel_location);
+    float GetWheelHeight(uint8_t wheel_idx);
 
     /// Return the control last applied to this vehicle.
     ///
