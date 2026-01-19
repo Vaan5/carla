@@ -589,6 +589,23 @@ FVehiclePhysicsControl ACarlaWheeledVehicle::GetVehiclePhysicsControl() const
   return PhysicsControl;
 }
 
+uint8 ACarlaWheeledVehicle::GetNumWheels() const
+{
+  if (!bIsNWVehicle) {
+    UWheeledVehicleMovementComponent4W *Vehicle4W = Cast<UWheeledVehicleMovementComponent4W>(
+          GetVehicleMovement());
+    check(Vehicle4W != nullptr);
+
+    return Vehicle4W->WheelSetups.Num();
+  } else {
+    UWheeledVehicleMovementComponentNW *VehicleNW = Cast<UWheeledVehicleMovementComponentNW>(
+      GetVehicleMovement());
+    check(VehicleNW != nullptr);
+
+    return VehicleNW->WheelSetups.Num();
+  }
+}
+
 FVehicleLightState ACarlaWheeledVehicle::GetVehicleLightState() const
 {
   return InputControl.LightState;

@@ -38,6 +38,8 @@ FString CarlaGetStringError(ECarlaServerResponse Response)
       return "Actor is not a traffic light";
     case ECarlaServerResponse::FunctionNotAvailiableWhenDormant:
       return "Function not availiable when the actor is dormant";
+    case ECarlaServerResponse::InvalidWheelIdx:
+      return "Actor does not have a wheel with the given index";
   }
   return "unknown error";
 }

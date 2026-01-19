@@ -790,6 +790,9 @@ ECarlaServerResponse FVehicleActor::SetWheelSteerDirection(
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
     }
+    if(Vehicle->GetNumWheels() <= WheelIdx){
+      return ECarlaServerResponse::InvalidWheelIdx;
+    }
     Vehicle->SetWheelSteerDirection(WheelIdx, AngleInDeg);
   }
   return ECarlaServerResponse::Success;
@@ -808,7 +811,9 @@ ECarlaServerResponse FVehicleActor::GetWheelSteerAngle(
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
     }
-
+    if(Vehicle->GetNumWheels() <= WheelIdx){
+      return ECarlaServerResponse::InvalidWheelIdx;
+    }
     Angle = Vehicle->GetWheelSteerAngle(WheelIdx);
   }
   return ECarlaServerResponse::Success;
@@ -825,6 +830,9 @@ ECarlaServerResponse FVehicleActor::SetWheelPitchAngle(
     auto Vehicle = Cast<ACarlaWheeledVehicle>(GetActor());
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
+    }
+    if(Vehicle->GetNumWheels() <= WheelIdx){
+      return ECarlaServerResponse::InvalidWheelIdx;
     }
     Vehicle->SetWheelPitchAngle(WheelIdx, AngleInDeg);
   }
@@ -844,7 +852,9 @@ ECarlaServerResponse FVehicleActor::GetWheelPitchAngle(
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
     }
-
+    if(Vehicle->GetNumWheels() <= WheelIdx){
+      return ECarlaServerResponse::InvalidWheelIdx;
+    }
     Angle = Vehicle->GetWheelPitchAngle(WheelIdx);
   }
   return ECarlaServerResponse::Success;
@@ -861,6 +871,9 @@ ECarlaServerResponse FVehicleActor::SetWheelHeight(
     auto Vehicle = Cast<ACarlaWheeledVehicle>(GetActor());
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
+    }
+    if(Vehicle->GetNumWheels() <= WheelIdx){
+      return ECarlaServerResponse::InvalidWheelIdx;
     }
     Vehicle->SetWheelHeight(WheelIdx, height);
   }
@@ -880,7 +893,9 @@ ECarlaServerResponse FVehicleActor::GetWheelHeight(
     if(Vehicle == nullptr){
       return ECarlaServerResponse::NotAVehicle;
     }
-
+    if(Vehicle->GetNumWheels() <= WheelIdx){
+      return ECarlaServerResponse::InvalidWheelIdx;
+    }
     Height = Vehicle->GetWheelHeight(WheelIdx);
   }
   return ECarlaServerResponse::Success;

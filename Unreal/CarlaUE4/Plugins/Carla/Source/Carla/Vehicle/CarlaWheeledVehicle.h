@@ -169,6 +169,9 @@ public:
   FVehiclePhysicsControl GetVehiclePhysicsControl() const;
 
   UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
+  uint8 GetNumWheels() const;
+
+  UFUNCTION(Category = "CARLA Wheeled Vehicle", BlueprintCallable)
   FAckermannControllerSettings GetAckermannControllerSettings() const {
     return AckermannController.GetSettings();
   }
