@@ -240,7 +240,7 @@ void ACarlaRecorder::AddVehicleWheelsAnimation(FCarlaActor *CarlaActor)
   for (auto Wheel : WheeledVehicleMovementComponent->Wheels)
   {
     WheelInfo Info;
-    Info.Location = static_cast<EVehicleWheelLocation>(i);
+    Info.Idx = i;
     Info.SteeringAngle = CarlaVehicle->GetWheelSteerAngle(i);
     Info.TireRotation = Wheel->GetRotationAngle();
     Record.WheelValues.push_back(Info);

@@ -3,6 +3,8 @@
 //
 // This work is licensed under the terms of the MIT license.
 // For a copy, see <https://opensource.org/licenses/MIT>.
+//
+// Additional functionality added by AVL List GmbH under the terms of the MIT license.
 
 #include "CarlaRecorder.h"
 #include "CarlaRecorderHelpers.h"
@@ -10,14 +12,14 @@
 
 void WheelInfo::Write(std::ostream &OutFile) const
 {
-  WriteValue<EVehicleWheelLocation>(OutFile, Location);
+  WriteValue<uint8_t>(OutFile, Idx);
   WriteValue<float>(OutFile, SteeringAngle);
   WriteValue<float>(OutFile, TireRotation);
 }
 
 void WheelInfo::Read(std::istream &InFile)
 {
-  ReadValue<EVehicleWheelLocation>(InFile, Location);
+  ReadValue<uint8_t>(InFile, Idx);
   ReadValue<float>(InFile, SteeringAngle);
   ReadValue<float>(InFile, TireRotation);
 }
