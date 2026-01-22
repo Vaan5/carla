@@ -3252,20 +3252,23 @@ The client returns the state of the traffic light affecting this vehicle accordi
 - <a name="carla.Vehicle.get_wheel_steer_angle"></a>**<font color="#7fb800">get_wheel_steer_angle</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**wheel_location**</font>)  
 Returns the physics angle in degrees of a vehicle's wheel.  
     - **Parameters:**
-        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_)  
+        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_ | _uint8_)  
     - **Return:** _float_  
     - **Note:** <font color="#8E8E8E">_Returns the angle based on the physics of the wheel, not the visual angle.
-_</font>  
+_</font>
+    - **Note:** <font color="#8E8E8E">_For N-wheeled vehicles, the vehicle wheel should be defined as an unsigned integer index. Wheel indices are assigned as follows: even-numbered indices correspond to the left wheels, and odd-numbered indices correspond to the right wheels. The front wheels are represented by indices 0 and 1, with index 0 for the front-left wheel and index 1 for the front-right wheel._</font>
 - <a name="carla.Vehicle.get_wheel_pitch_angle"></a>**<font color="#7fb800">get_wheel_pitch_angle</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**wheel_location**</font>)
 Returns the pitch angle in degrees of a vehicle's wheel.
     - **Parameters:**
-        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_)
+        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_ | _uint8_)
     - **Return:** _float_
+    - **Note:** <font color="#8E8E8E">_For N-wheeled vehicles, the vehicle wheel should be defined as an unsigned integer index. Wheel indices are assigned as follows: even-numbered indices correspond to the left wheels, and odd-numbered indices correspond to the right wheels. The front wheels are represented by indices 0 and 1, with index 0 for the front-left wheel and index 1 for the front-right wheel._</font>
 - <a name="carla.Vehicle.get_wheel_height"></a>**<font color="#7fb800">get_wheel_height</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**wheel_location**</font>)
 Returns the height of a vehicle's wheel.
     - **Parameters:**
-        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_)
+        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_ | _uint8_)
     - **Return:** _float_
+    - **Note:** <font color="#8E8E8E">_For N-wheeled vehicles, the vehicle wheel should be defined as an unsigned integer index. Wheel indices are assigned as follows: even-numbered indices correspond to the left wheels, and odd-numbered indices correspond to the right wheels. The front wheels are represented by indices 0 and 1, with index 0 for the front-left wheel and index 1 for the front-right wheel._</font>
 
 ##### Setters
 - <a name="carla.Vehicle.set_autopilot"></a>**<font color="#7fb800">set_autopilot</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**enabled**=True</font>, <font color="#00a6ed">**port**=8000</font>)  
@@ -3281,20 +3284,23 @@ Sets the light state of a vehicle using a flag that represents the lights that a
 - <a name="carla.Vehicle.set_wheel_steer_direction"></a>**<font color="#7fb800">set_wheel_steer_direction</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**wheel_location**</font>, <font color="#00a6ed">**angle_in_deg**</font>)<button class="SnipetButton" id="carla.Vehicle.set_wheel_steer_direction-snipet_button">snippet &rarr;</button>  
 Sets the angle of a vehicle's wheel visually.  
     - **Parameters:**
-        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_)  
+        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_ | _uint8_)  
         - `angle_in_deg` (_float_)  
     - **Warning:** <font color="#ED2F2F">_Does not affect the physics of the vehicle.
+    - **Note:** <font color="#8E8E8E">_For N-wheeled vehicles, the vehicle wheel should be defined as an unsigned integer index. Wheel indices are assigned as follows: even-numbered indices correspond to the left wheels, and odd-numbered indices correspond to the right wheels. The front wheels are represented by indices 0 and 1, with index 0 for the front-left wheel and index 1 for the front-right wheel._</font>
 _</font>
 - <a name="carla.Vehicle.set_wheel_pitch_angle"></a>**<font color="#7fb800">set_wheel_pitch_angle</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**wheel_location**</font>, <font color="#00a6ed">**angle_in_deg**</font>)
 Sets the pitch angle of a vehicle's wheel visually.
     - **Parameters:**
-        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_)
+        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_ | _uint8_)
         - `angle_in_deg` (_float_)
+    - **Note:** <font color="#8E8E8E">_For N-wheeled vehicles, the vehicle wheel should be defined as an unsigned integer index. Wheel indices are assigned as follows: even-numbered indices correspond to the left wheels, and odd-numbered indices correspond to the right wheels. The front wheels are represented by indices 0 and 1, with index 0 for the front-left wheel and index 1 for the front-right wheel._</font>
 - <a name="carla.Vehicle.set_wheel_height"></a>**<font color="#7fb800">set_wheel_height</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**wheel_location**</font>, <font color="#00a6ed">**height**</font>)
 Sets the height of a vehicle's wheel visually.
     - **Parameters:**
-        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_)
+        - `wheel_location` (_[carla.VehicleWheelLocation](#carla.VehicleWheelLocation)_ | _uint8_)
         - `height` (_float_)
+    - **Note:** <font color="#8E8E8E">_For N-wheeled vehicles, the vehicle wheel should be defined as an unsigned integer index. Wheel indices are assigned as follows: even-numbered indices correspond to the left wheels, and odd-numbered indices correspond to the right wheels. The front wheels are represented by indices 0 and 1, with index 0 for the front-left wheel and index 1 for the front-right wheel._</font>
 
 ##### Dunder methods
 - <a name="carla.Vehicle.__str__"></a>**<font color="#7fb800">\__str__</font>**(<font color="#00a6ed">**self**</font>)  
