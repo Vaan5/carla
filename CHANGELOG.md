@@ -12,6 +12,9 @@
    Be aware: some existing code using master/slave sync mechanism might need rework. See also generate_traffic.py.
  * Added a function to get arbitrary number of contact points (`World.get_contact_points`).
  * Added functions to get and set the wheel height.
+ * Adapted `get_wheel_pitch_angle`, `set_wheel_pitch_angle`, `get_wheel_steer_angle`, `set_wheel_steer_direction`, 
+   `get_wheel_height` and `get_wheel_height` to accept wheel index as argument in order to support N-wheeled vehicles.
+   Note: Old interface which relies on `VehicleWheelLocation` is still supported.
 
 ## CARLA 0.9.16
 
